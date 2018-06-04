@@ -6,37 +6,17 @@ import os
 # Complete the stockmax function below.
 def stockmax(prices):
     profit = 0
-    purchases = []
     remaining_prices = prices[:]
-    highest_price = max(prices)
+    highest_price = max(remaining_prices)
 
-    for index, price in enumerate(prices):
-        print(("Pass {} of {}").format(index + 1, len(prices)))
-        if index == len(prices) - 1:
-            if price == highest_price:
-                for _purchase in purchases:
-                    print("Selling a share...")
-                    profit += price
-                    print(profit)
-                print("Done selling shares...")
-        else:
-            if price == highest_price:
-                for _purchase in purchases:
-                    print("Selling a share...")
-                    profit += price
-                    print(profit)
-                purchases = []
-
-                del remaining_prices[0]
-                highest_price = max(remaining_prices)
-            else:
-                del remaining_prices[0]
-                highest_price = max(remaining_prices)
-
-                if price < highest_price:
-                    print("Buying a share...")
-                    purchases.append(price)
-                    profit -= price
+    for price in prices:
+        del remaining_prices[0]
+        try:
+            highest_price = max(remaining_prices)
+        except ValueError:
+            break
+        if price < highest_price:
+            profit += (highest_price - price)
 
     return profit
 
