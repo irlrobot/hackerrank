@@ -6,17 +6,17 @@ import os
 # Complete the stockmax function below.
 def stockmax(prices):
     profit = 0
-    remaining_prices = prices[:]
-    highest_price = max(remaining_prices)
+    sorted_prices = prices[:]
+    sorted_prices.sort(reverse=True)
+    max_price = sorted_prices[0]
 
     for price in prices:
-        del remaining_prices[0]
-        try:
-            highest_price = max(remaining_prices)
-        except ValueError:
-            break
-        if price < highest_price:
-            profit += (highest_price - price)
+        print(max_price)
+        if price == max_price:
+            max_price = sorted_prices[1]
+            del sorted_prices[0]
+        elif price < max_price:
+            profit += (max_price - price)
 
     return profit
 
