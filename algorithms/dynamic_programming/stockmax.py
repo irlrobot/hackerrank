@@ -11,12 +11,13 @@ def stockmax(prices):
 
     for price in prices:
         max_price = sorted_prices[0]
-        print(max_price)
         if price == max_price:
             del sorted_prices[0]
+            continue
         elif price < max_price:
             profit += (max_price - price)
 
+        sorted_prices.remove(price)
     return profit
 
 
