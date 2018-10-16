@@ -1,0 +1,7 @@
+version: "3"
+services:
+  python:
+    command: python
+    image: hrpython
+    volumes:
+      - $PWD:/src
