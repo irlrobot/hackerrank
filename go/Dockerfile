@@ -4,4 +4,8 @@ COPY . /src/
 
 WORKDIR /src
 
+RUN adduser --disabled-password --gecos "" josh
+
+USER josh
+
 ENTRYPOINT ["go"]
