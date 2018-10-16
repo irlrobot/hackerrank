@@ -1,0 +1,7 @@
+version: "3"
+services:
+  go:
+    command: go
+    image: hrgo
+    volumes:
+      - $PWD:/src
