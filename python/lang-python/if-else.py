@@ -13,9 +13,9 @@ num = int(input())
 if (num % 2) == 1:
     print("Weird")
 else:
-    if num in list(range(2, 5)):
+    if num in list(range(2, 6)):
         print("Not Weird")
-    elif num in list(range(6, 20)):
+    elif num in list(range(6, 21)):
         print("Weird")
     elif num > 20:
         print("Not Weird")
